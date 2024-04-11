@@ -11,22 +11,21 @@
 
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 {
+	binary_tree_t *bt_new_node;
+
 	if (parent == NULL)
 	{
 		return (NULL);
 	}
 
-	binary_tree_t *bt_new_node = malloc(sizeof(binary_tree_t));
+	/*updated code to reuse binary_tree_node file*/
+
+	bt_new_node = binary_tree_node(parent, value);
 
 	if (bt_new_node == NULL)
 	{
 		return (NULL);
 	}
-
-	(*bt_new_node).parent = parent;
-	(*bt_new_node).n = value;
-	(*bt_new_node).left = NULL;
-	(*bt_new_node).right = NULL;
 
 	if ((*parent).left != NULL)
 	{
